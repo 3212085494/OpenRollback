@@ -14,7 +14,7 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue?style=for-the-badge&logo=tauri)](https://tauri.app/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 [![MCP](https://img.shields.io/badge/MCP-stdio-purple?style=for-the-badge)](https://modelcontextprotocol.io/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT%20License-green?style=for-the-badge)](LICENSE)
 
 <br/>
 
@@ -374,9 +374,10 @@ OpenRollback 为**本地文件辅助工具**，适用于个人开发与 AI Agent
 
 ---
 
-## 📄 License & Changelog
+## 📄 开源协议与更新日志
 
-[MIT](LICENSE) © OpenRollback Contributors · [CHANGELOG](CHANGELOG.md)
+本项目采用 [MIT 开源许可证](LICENSE)（与麻省理工学院无关，仅为一种开源协议名称）。  
+版权 © OpenRollback Contributors · [更新日志 CHANGELOG](CHANGELOG.md)
 
 ---
 
