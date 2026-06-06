@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "openrollback": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--manifest-path",
+        "src-tauri/Cargo.toml",
+        "--bin",
+        "openrollback-mcp",
+        "--quiet"
+      ],
+      "env": {}
+    }
+  }
+}

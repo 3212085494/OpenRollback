@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-in: enter 0.3s ease-out;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: var(--animate-in);
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.zoom-in-95 {
+  animation-name: zoom-in-95;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes zoom-in-95 {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: slide-in-from-bottom;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(1rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.slide-in-from-left-2 {
+  animation-name: slide-in-from-left;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #065f46;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* 时间轴拖动滚动区域 */
+.timeline-scroll {
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: auto;
+  /* flex 子项必须允许收缩，否则内容会把容器撑开导致无法横向滚动 */
+  min-width: 0;
+  max-width: 100%;
+}
+
+.timeline-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb {
+  background: #0891b2;
+  border-radius: 5px;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee;
+}

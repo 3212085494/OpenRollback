@@ -1,0 +1,101 @@
+# OpenRollback — Cursor 开发约束
+# AI Agent 系统级安全网与时间机器
+
+project:
+  name: OpenRollback
+  description: AI Agent 的系统级安全网与时间机器
+  goal: |
+    拦截 AI Agent 的文件/系统操作，自动创建增量快照，
+    并提供基于时间轴的可视化一键回滚功能。
+  license: open-source
+  role: |
+    你是一位顶级的 Rust 和 Tauri 架构师，精通 MCP 协议和系统级编程。
+    使用 Cursor 自主开发本项目，创建文件、编写代码、执行终端命令并验证结果。
+
+techstack:
+  backend:
+    language: Rust
+    rationale: 高性能，内存安全
+  frontend:
+    framework: Tauri v2
+    ui: React + TypeScript + TailwindCSS
+  database:
+    engine: SQLite
+    crate: rusqlite
+    purpose: 存储操作日志和快照元数据
+  file_monitor:
+    crate: notify
+    purpose: 监听本地文件系统变更
+  protocol:
+    name: MCP
+    full_name: Model Context Protocol
+    sdk: MCP Rust SDK
+    purpose: 与 AI Agent 集成，拦截与记录操作
+
+mvp_scope:
+  in_scope:
+    - 本地文件系统监控
+    - 增量快照创建
+    - 基于时间轴的可视化回滚
+    - MCP 协议集成（文件操作拦截）
+  out_of_scope:
+    - 数据库操作监控（非 SQLite 元数据存储）
+    - 网络操作监控
+    - 远程/云存储
+    - 多用户协作
+
+architecture:
+  layers:
+  backend:
+    - 文件监控服务（notify）
+    - 快照引擎（增量备份）
+    - 操作日志记录（rusqlite）
+    - MCP Server（拦截 Agent 操作）
+  frontend:
+    - 时间轴可视化
+    - 一键回滚 UI
+    - 快照浏览与管理
+  data_flow: |
+    Agent 操作 → MCP 拦截 → 记录日志 → 创建快照 → 时间轴展示 → 用户回滚
+
+dev_rules:
+  error_handling:
+    - 使用 thiserror 定义领域错误类型
+    - 使用 anyhow 处理应用层错误传播
+    - 禁止 unwrap/expect 用于可恢复错误路径
+  code_style:
+    - Rust 代码需包含详细注释（模块、公共 API、非显而易见逻辑）
+    - 遵循 Rust 官方命名与模块组织惯例
+    - 前端遵循 React + TypeScript 严格模式
+  workflow:
+    - MVP 优先，避免过度设计
+    - 自主创建文件、编写代码
+    - 自主执行 cargo check、cargo test、tauri dev 等命令验证
+    - 每次功能完成后运行检查，确保可编译、可运行
+  git:
+    - 仅在用户明确要求时创建 commit
+    - 不提交密钥或敏感配置
+
+dependencies:
+  rust:
+    required:
+      - thiserror
+      - anyhow
+      - rusqlite
+      - notify
+      - tauri
+    mcp: MCP Rust SDK
+  frontend:
+    required:
+      - react
+      - typescript
+      - tailwindcss
+
+verification_commands:
+  rust:
+    - cargo check
+    - cargo test
+    - cargo clippy
+  tauri:
+    - cargo tauri dev
+    - cargo tauri build
